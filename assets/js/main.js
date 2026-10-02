@@ -24,6 +24,38 @@ if (menuButton && navigation) {
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if ('IntersectionObserver' in window && !reduceMotion) {
+  const revealGroups = [
+    '.statement-inner',
+    '.services-section .section-intro',
+    '.service-row',
+    '.approach-header',
+    '.steps li',
+    '.why-section .section-intro',
+    '.why-grid article',
+    '.cases-section .section-intro',
+    '.case-card',
+    '.about-layout > div',
+    '.contact-copy',
+    '.contact-form'
+  ];
+  const revealItems = document.querySelectorAll(revealGroups.join(', '));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+
+  revealItems.forEach((item) => {
+    item.classList.add('reveal-item');
+    observer.observe(item);
+  });
+  document.documentElement.classList.add('has-scroll-reveal');
+}
+
 const form = document.getElementById('contact-form');
 if (form) {
   const note = document.getElementById('form-note');
