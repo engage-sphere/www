@@ -6,33 +6,18 @@
   <title>Cookie Policy – EngageSphere</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-      background: #0b0f17;
-      color: #e6e8ef;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #68d4ff;
-    }
-
-    a {
-      color: #68d4ff;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="legal-page">
+  <header class="legal-header"><div class="container"><a class="brand" href="index.html" aria-label="EngageSphere home"><img src="assets/img/engagesphere-logo.png" alt="EngageSphere" width="494" height="170"></a></div></header>
+  <main class="container legal-main">
 
   <h1>Cookie Policy</h1>
-  <p>Last updated: <strong id="year"></strong></p>
+  <p class="legal-updated">Last updated: <strong id="year"></strong></p>
 
   <h2>1. Use of cookies on this site</h2>
   <p>
@@ -80,6 +65,8 @@
   <p>
     Any changes will be published on this page.
   </p>
+  <a class="legal-back" href="index.html">← Back to home</a>
+  </main>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
